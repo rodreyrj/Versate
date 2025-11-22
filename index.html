@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boca Bahia | Cocina Costera y Mariscos</title>
+    
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración de Tailwind para usar un tema más cálido y marinero -->
+    <!-- MANTENIDO: El bloque de script está ahora inmediatamente después del CDN para prevenir el error 'ReferenceError: tailwind is not defined' -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bb-primary': '#B5332F', // Un rojo profundo para acento
+                        'bb-secondary': '#FDD231', // Un amarillo dorado para destacar
+                        'bb-dark': '#1E293B', // Azul oscuro casi negro para texto
+                        'bb-cream': '#F8F8F0', // Fondo crema suave
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Estilos personalizados para el fondo del encabezado con efecto de ola/agua */
+        .hero-background {
+            background: linear-gradient(135deg, #B5332F 0%, #E66465 100%);
+        }
+        /* Efecto de sombra para resaltar las tarjetas de promoción */
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Estilo para el botón de WhatsApp en el footer */
+        .whatsapp-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .whatsapp-button:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-bb-cream text-bb-dark">
+
+    <!-- Barra de Navegación FIJA (Sticky Header) - Elemento extraído del Header principal -->
+    <nav class="fixed top-0 w-full bg-bb-primary text-bb-cream z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold tracking-widest">
+                Boca Bahia
+            </div>
+            <!-- MENÚ DE NAVEGACIÓN -->
+            <div class="hidden md:flex space-x-6 text-sm font-semibold">
+                <!-- Se mantienen los enlaces aquí arriba -->
+                <a href="#inicio" class="hover:text-bb-secondary transition duration-300">INICIO</a>
+                <a href="#nosotros" class="hover:text-bb-secondary transition duration-300">NOSOTROS</a>
+                <a href="#menu" class="hover:text-bb-secondary transition duration-300">MENÚ</a>
+                <a href="#contacto" class="hover:text-bb-secondary transition duration-300">CONTACTO</a>
+            </div>
+            <!-- Botón de Reserva por WhatsApp -->
+            <div class="flex items-center space-x-4 text-sm font-medium">
+                <a href="https://wa.me/5256639178?text=Me%20interesa%20reservar%20mesa" target="_blank" class="bg-bb-secondary text-bb-dark px-4 py-2 rounded-lg hover:bg-white transition duration-300 transform hover:scale-105">
+                    RESERVAR MESA (WhatsApp)
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section (Ahora empieza con pt-20 para compensar el Header fijo) -->
+    <header id="inicio" class="hero-background text-bb-cream pt-20">
+        <!-- Contenido Principal del Hero -->
+        <div class="container mx-auto px-4 pt-16 pb-24 md:pt-24 md:pb-32 flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+            <div class="md:w-1/2 z-10 text-center md:text-left">
+                <h1 class="text-5xl md:text-6xl font-serif font-extrabold leading-tight mb-4">
+                    La Joya de la Cocina Costera
+                </h1>
+                <p class="text-xl mb-8">
+                    Pescados frescos, mariscos exquisitos y el mejor ambiente frente al mar.
+                </p>
+                <button class="bg-white text-bb-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-bb-secondary hover:text-bb-dark transition duration-300 transform hover:scale-105">
+                    VER NUESTRO MENÚ
+                </button>
+            </div>
+            <!-- Imagen Principal (Plato Estrella del Mar) -->
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center z-10">
+                <img src="https://i.postimg.cc/XqbCBnb2/IMG-20251122-WA0038.jpg"
+                     alt="Plato Principal del Menú"
+                     class="w-full max-w-lg rounded-xl shadow-2xl transform hover:rotate-1 transition duration-500 ease-in-out"
+                     onerror="this.onerror=null;this.src='https://placehold.co/500x350/1E293B/FDD231?text=Boca+Bahia';"
+                >
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Características / Propuesta de Valor -->
+    <section id="nosotros" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-4xl font-serif font-bold mb-12 text-bb-primary">
+                Boca Bahia te ofrece...
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- Característica 1: Pescado Fresco -->
+                <div class="flex flex-col items-center p-4">
+                    <div class="text-4xl text-bb-secondary mb-3">
+                        🐟
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">PESCA DEL DÍA</h3>
+                    <p class="text-sm text-gray-600">
+                        Solo ingredientes recién pescados, directos a tu mesa.
+                    </p>
+                </div>
+                <!-- Característica 2: Chef Experto -->
+                <div class="flex flex-col items-center p-4">
+                    <div class="text-4xl text-bb-secondary mb-3">
+                        👨‍🍳
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">CHEF DE RENOMBRE</h3>
+                    <p class="text-sm text-gray-600">
+                        Recetas auténticas con un toque de innovación.
+                    </p>
+                </div>
+                <!-- Característica 3: Ambiente -->
+                <div class="flex flex-col items-center p-4">
+                    <div class="text-4xl text-bb-secondary mb-3">
+                        🍹
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">VISTA ESPECTACULAR</h3>
+                    <p class="text-sm text-gray-600">
+                        Disfruta tu cena con el sonido de las olas.
+                    </p>
+                </div>
+                <!-- Característica 4: Eventos Privados -->
+                <div class="flex flex-col items-center p-4">
+                    <div class="text-4xl text-bb-secondary mb-3">
+                        🎁
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">EVENTOS PRIVADOS</h3>
+                    <p class="text-sm text-gray-600">
+                        Celebra tus momentos especiales en nuestro espacio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Destacados / Minipromociones -->
+    <section id="menu" class="py-16 md:py-24 bg-bb-cream">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-4xl font-serif font-bold mb-12 text-bb-dark">
+                Nuestros Platos Destacados
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Destacado 1: PLATOS ESTRELLA -->
+                <div class="bg-bb-dark text-white rounded-xl overflow-hidden card-shadow hover:scale-[1.02] transition duration-300">
+                    <img src="https://i.postimg.cc/5N9Mp87K/IMG-20251122-WA0009.jpg"
+                         alt="Platos Estrella del Menú"
+                         class="w-full h-48 object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x250/B5332F/FFFFFF?text=Platos+Estrella';"
+                    >
+                    <div class="p-5">
+                        <h3 class="text-2xl font-serif font-bold text-bb-secondary mb-2">PLATOS ESTRELLA</h3>
+                        <p class="text-sm">
+                            Nuestra selección más aclamada por chefs y clientes. ¡Sabores que enamoran!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Destacado 2: DULCES Y POSTRES -->
+                <div class="bg-white rounded-xl overflow-hidden card-shadow hover:scale-[1.02] transition duration-300">
+                    <img src="https://i.postimg.cc/CMBhkG2w/IMG-20251122-WA0031.jpg"
+                         alt="Variedad de Postres y Dulces"
+                         class="w-full h-48 object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x250/B5332F/FFFFFF?text=Postres';"
+                    >
+                    <div class="p-5">
+                        <h3 class="text-2xl font-serif font-bold text-bb-primary mb-2">DULCES Y POSTRES</h3>
+                        <p class="text-sm text-gray-700">
+                            Una exquisita variedad de postres caseros para un final perfecto.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Destacado 3: Bebidas -->
+                <div class="bg-bb-primary text-white rounded-xl overflow-hidden card-shadow hover:scale-[1.02] transition duration-300">
+                    <img src="https://i.postimg.cc/fbp7L7FX/IMG-20251122-WA0010.jpg"
+                         alt="Cocteles de Autor"
+                         class="w-full h-48 object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x250/1E293B/FDD231?text=Cocteles';"
+                    >
+                    <div class="p-5">
+                        <h3 class="text-2xl font-serif font-bold text-bb-secondary mb-2">COCTELES DE AUTOR</h3>
+                        <p class="text-sm">
+                            Bebidas refrescantes inspiradas en los sabores del trópico.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Valoración y Ambiente (5 Estrellas) -->
+    <section class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-serif font-bold mb-4 text-bb-dark">
+                Disfruta en nuestro restaurante 5 estrellas
+            </h2>
+            <p class="text-xl mb-12 text-gray-600">
+                Calidad certificada y el mejor ambiente frente al mar.
+            </p>
+
+            <!-- 5 Estrellas Doradas con SVG -->
+            <div class="flex justify-center space-x-2 mb-10">
+                <!-- Estrella 1 -->
+                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+                <!-- Estrella 2 -->
+                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+                <!-- Estrella 3 -->
+                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+                <!-- Estrella 4 -->
+                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+                <!-- Estrella 5 -->
+                <svg class="w-8 h-8 text-bb-secondary fill-current" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 18.896l-7.416 3.917 1.48-8.279L.001 9.306l8.332-1.151L12 .587z"/></svg>
+            </div>
+
+            <p class="text-lg italic text-gray-700 max-w-2xl mx-auto">
+                "Nuestro compromiso con la frescura, el servicio y la experiencia nos posiciona como la mejor opción de la costa."
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección de Carta Digital (Enlace directo a la carta) -->
+    <section class="py-16 md:py-24 bg-bb-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-center text-4xl font-serif font-bold mb-12 text-white">
+                Nuestra Carta Digital
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Explora todos nuestros platillos, cocteles y postres en tiempo real desde tu dispositivo.
+            </p>
+            <a href="https://cartadigital.vercel.app" target="_blank" class="inline-block bg-bb-secondary text-bb-dark px-10 py-4 rounded-full font-bold text-xl hover:bg-white transition duration-300 transform hover:scale-105 shadow-xl">
+                VER EL MENÚ COMPLETO
+            </a>
+            <div class="mt-12 opacity-80">
+                 <!-- Icono representativo de un menú o tablet -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-bb-secondary">
+                    <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                    <line x1="2" y1="9" x2="22" y2="9"></line>
+                    <path d="M12 13H8"></path>
+                    <path d="M16 13H12"></path>
+                    <path d="M12 17H8"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+    <!-- FIN SECCIÓN CARTA DIGITAL -->
+
+    <!-- Footer / Pie de Página -->
+    <footer id="contacto" class="bg-bb-dark text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            
+            <!-- Botón Único de WhatsApp Grande -->
+            <div class="mb-8">
+                <a href="https://wa.me/5256639178?text=Me%20interesa%20reservar%20mesa" target="_blank" class="whatsapp-button inline-flex items-center justify-center bg-[#25D366] text-white px-8 py-3 rounded-full font-bold text-xl hover:bg-[#128C7E] transform hover:scale-105">
+                    <!-- WhatsApp SVG Icon -->
+                    <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.053.51 3.992 1.408 5.719L.055 24l6.438-1.686A11.97 11.97 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zM17.4 16.3c-.2-.1-.8-.4-1.2-.6-.3-.1-.5-.2-.7.2-.2.4-.6 1-.7 1.2-.2.2-.4.2-.8.1-.4-.1-1.8-.7-3.4-2.1-1.3-1.2-2.3-2.6-2.5-3-.2-.3 0-.5.1-.7.1-.2.3-.4.4-.6.1-.2.1-.3 0-.6-.1-.3-.7-1.7-1-2.4-.2-.5-.4-.4-.6-.4-.2 0-.4-.1-.6-.1-.2 0-.6.1-.9.4-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.2 4.9 4.4 2.9 1.2 2.9 1 3.5.9.6-.1 1.8-.7 2.1-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/>
+                    </svg>
+                    RESERVAR MESA POR WHATSAPP
+                </a>
+            </div>
+
+            <p class="text-lg text-gray-400 mb-6">
+                Av. del Mar 101, Boca Grande, (Tu Ciudad)
+            </p>
+            
+            <!-- Enlaces del Footer (Se quitó el enlace a CONTACTO) -->
+            <div class="flex justify-center space-x-4 text-xs uppercase font-semibold text-gray-400">
+                <a href="#inicio" class="hover:text-bb-secondary transition duration-300">INICIO</a>
+                <span class="text-gray-600">|</span>
+                <a href="#menu" class="hover:text-bb-secondary transition duration-300">MENÚ</a>
+            </div>
+            <p class="text-sm mt-6 text-gray-500">
+                © 2024 Boca Bahia Restaurant. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
