@@ -9,7 +9,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Configuración de Tailwind para usar un tema más cálido y marinero -->
-    <!-- Colocado aquí para asegurar que la configuración se cargue ANTES de que el navegador intente renderizar el contenido, solucionando el 'ReferenceError'. -->
     <script>
         tailwind.config = {
             theme: {
@@ -104,9 +103,10 @@
                 <p class="text-xl mb-8">
                     Pescados frescos, mariscos exquisitos y el mejor ambiente frente al mar.
                 </p>
-                <button class="bg-white text-bb-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-bb-secondary hover:text-bb-dark transition duration-300 transform hover:scale-105">
+                <!-- BOTÓN PRINCIPAL: Ahora apunta a la sección de la Carta Digital (#carta-digital) -->
+                <a href="#carta-digital" class="inline-block bg-white text-bb-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-bb-secondary hover:text-bb-dark transition duration-300 transform hover:scale-105">
                     VER NUESTRO MENÚ
-                </button>
+                </a>
             </div>
             <!-- Imagen Principal (Plato Estrella del Mar) - Responsividad con max-w-lg -->
             <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center z-10">
@@ -254,7 +254,8 @@
     </section>
 
     <!-- Sección de Carta Digital (Enlace directo a la carta) -->
-    <section class="py-16 md:py-24 bg-bb-primary text-white">
+    <!-- Se añade el ID para que el botón principal y los enlaces de navegación funcionen -->
+    <section id="carta-digital" class="py-16 md:py-24 bg-bb-primary text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-center text-4xl font-serif font-bold mb-12 text-white">
                 Nuestra Carta Digital
